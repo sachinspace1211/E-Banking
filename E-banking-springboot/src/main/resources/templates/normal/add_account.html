@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>home</title>
+</head>
+<body>
+
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body mb-5"></div>
+
+			<div class="container text-center">
+				<h3 class="mt-3">Add Account !!</h3>
+				<h5 class="mt-3">Customer Details</h5>
+				<h6>
+					Customer Name : <span class="bg-text-color"
+						th:text="${customer.firstName} "> </span> <span
+						class="bg-text-color" th:text="${customer.lastName}"></span>
+				</h6>
+				<h6>
+					Credit Card : <span class="bg-text-color"
+						th:text="${customer.creditCard}"></span>
+				</h6>
+				<h6>
+					Email : <span class="bg-text-color" th:text="${customer.email}"></span>
+				</h6>
+				<h6>
+					Mobile Number : <span class="bg-text-color"
+						th:text="${customer.contact}"></span>
+				</h6>
+				<h6>
+					Annual Income : <span class="bg-text-color"
+						th:text="${customer.annualIncome}"></span>
+				</h6>
+				<h6>
+					Age : <span class="bg-text-color" th:text="${customer.age}"></span>
+				</h6>
+				<h6>
+					Gender: <span class="bg-text-color" th:text="${customer.gender}"></span>
+				</h6>
+				<h6>
+					City : <span class="bg-text-color" th:text="${customer.city}"></span>
+				</h6>
+				<h6>
+					Occupation : <span class="bg-text-color"
+						th:text="${customer.occupation}"></span>
+				</h6>
+
+
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						<form novalidate="novalidate" action="#"
+							th:action="@{/user/process-account}" th:object="${customer}"
+							method="post" class="mt-2">
+							<input type="hidden" name="id" th:value="${customer.id}" /> <select
+								class="form-select form-select-lg mb-3" name="accountType"
+								aria-label=".form-select-lg">
+								<option>Choose Account Type</option>
+								<option value="saving">Saving</option>
+								<option value="current">Current</option>
+								<option value="recurring">Recurring</option>
+							</select>
+
+							<!-- Button  -->
+							<div class="container text-center mt-3">
+								<button type="submit"
+									class="btn btn-lg bg-color pl-3 pr-3  mr-3 text-white mb-5">Add
+									Account</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</body>
+</html>

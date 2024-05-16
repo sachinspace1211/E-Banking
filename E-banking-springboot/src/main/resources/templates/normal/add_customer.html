@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Customer</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="card mr-3 ml-3 mb-3">
+			<div class="card-body">
+				<h3 class="text-center bg-text-color">Add Customer</h3>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<form  action="#"
+								th:action="@{/user/process-customer}" th:object="${customer}"
+								method="post" class="mt-2">
+
+								<!-- 	firstname -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-user-alt"></em>
+										</div>
+									</div>
+									<input type="text" id="name" name="firstName"
+										th:value="${customer.firstName}" maxlength="32"
+										pattern="[A-Za-z]{1,32}" required="required"
+										placeholder="Enter First Name here"
+										th:classappend="${#fields.hasErrors('firstName')?'is-invalid': ''}"
+										class="form-control" />
+									<div th:each="e:${#fields.errors('firstName')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+
+								<!-- 	last name -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-user-alt"></em>
+										</div>
+									</div>
+									<input type="text" id="secondName"
+										th:value="${customer.lastName}" maxlength="32"
+										pattern="[A-Za-z]{1,32}" required="required"
+										th:classappend="${#fields.hasErrors('lastName')?'is-invalid': ''}"
+										name="lastName" placeholder="Enter Last Name here"
+										class="form-control" />
+									<div th:each="e:${#fields.errors('lastName')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	Age -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="far fa-calendar-alt"></em>
+										</div>
+									</div>
+									<input type="number" id="age"
+										th:classappend="${#fields.hasErrors('age')?'is-invalid': ''}"
+										min="18" max="120" required="required" name="age"
+										placeholder="Enter Age here" class="form-control" />
+									<div th:each="e:${#fields.errors('age')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	City -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-city"></em>
+										</div>
+									</div>
+									<input type="text" id="city" th:value="${customer.city}"
+										th:classappend="${#fields.hasErrors('city')?'is-invalid': ''}"
+										pattern="[A-Za-z]{1,32}" required="required" name="city"
+										placeholder="Enter city here" class="form-control" />
+									<div th:each="e:${#fields.errors('city')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	occupation -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-briefcase"></em>
+										</div>
+									</div>
+									<input type="text" id="occupation"
+										th:value="${customer.occupation}" pattern="[A-Za-z]{1,32}"
+										required="required"
+										th:classappend="${#fields.hasErrors('occupation')?'is-invalid': ''}"
+										name="occupation" placeholder="Enter occupation here"
+										class="form-control" />
+									<div th:each="e:${#fields.errors('occupation')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	Email -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-envelope"></em>
+										</div>
+									</div>
+									<input type="email" id="email" th:value="${customer.email}"
+										name="email" required="required"
+										th:classappend="${#fields.hasErrors('email')?'is-invalid': ''}"
+										placeholder="Enter Email Id here" class="form-control" />
+									<div th:each="e:${#fields.errors('email')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	Contact Number -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-phone-alt"></em>
+										</div>
+									</div>
+									<input type="number" id="phone" th:value="${customer.contact}"
+										name="contact" pattern="[1-9]{1}[0-9]{9}" required="required"
+										th:classappend="${#fields.hasErrors('contact')?'is-invalid': ''}"
+										placeholder="Enter phone Number here" class="form-control" />
+									<div th:each="e:${#fields.errors('contact')}" th:text="${e}"
+										class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	annualIncome -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<em class="fas fa-rupee-sign"></em>
+										</div>
+									</div>
+									<input type="text" id="annualIncome" name="annualIncome"
+										min="0" max="9223372036854775807" required="required"
+										th:classappend="${#fields.hasErrors('annualIncome')?'is-invalid': ''}"
+										placeholder="Enter annual income here" class="form-control" />
+									<div th:each="e:${#fields.errors('annualIncome')}"
+										th:text="${e}" class="invalid-feedback ml-5"></div>
+								</div>
+								<!-- 	Gender -->
+								<div class="form-check border p-2 mt-3">
+									<span class="ml--3"><input class="form-check-input ml-2"
+										checked type="radio" name="gender" value="male"
+										id="flexRadioDefault1"> <label
+										class="form-check-label ml-5" for="flexRadioDefault1">Male</label></span>
+
+									<span class="ml-5"><input class="form-check-input "
+										type="radio" name="gender" value="female"
+										id="flexRadioDefault2"> <label
+										class="form-check-label" for="flexRadioDefault2">Female</label></span>
+								</div>
+								<!-- account type -->
+								<select name="accountType"
+									class="form-select form-select-lg mt-3 p-2 border"
+									id="accountType">
+									<option value="null">Account Type</option>
+									<option value="current">Current</option>
+									<option value="saving">Saving</option>
+									<option value="recurring">Recurring</option>
+								</select>
+
+								<!-- Button  -->
+								<div class="container text-center mt-3">
+									<button type="submit"
+										class="btn btn-lg bg-color pl-3 pr-3  mr-3 text-white">Add
+										Contact</button>
+									<button type="reset"
+										class="btn btn-lg bg-warning pl-3 pr-3   text-white">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin"></script>
+
+		<script>
+                   tinymce.init({
+        			selector: '#description'
+     				 });
+   			 </script>
+
+		<script>
+                  
+                  $(document).ready(() => {
+                   $('.item').removeClass('active');   
+                   $('#view-link').addClass('active');              
+                  });
+                 
+                  
+             </script>
+
+	</section>
+</body>
+</html>

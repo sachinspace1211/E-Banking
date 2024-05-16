@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>show Customer</title>
+</head>
+<body>
+
+	<section>
+		<div class="card ml-3 mr-3">
+			<div class="card-body">
+				<h3 class="text-center mb-4 bg-text-color">Transaction</h3>
+
+				<div class="table-responsive">
+				<p class="text-center ">From Date : 
+				   <span class="bg-text-color" th:text="${fromDate}"></span> 
+				   <br>To Date : 
+				   <span class="bg-text-color" th:text="${toDate}"></span></p>
+				   <table class="table table-hover">
+				   <caption>Transaction Table</caption>
+						<thead class="text-white bg-color">
+							<tr>
+								<th scope="col">SNo.</th>
+								<th scope="col">Date</th>
+								<th scope="col">From Account</th>
+								<th scope="col">To Account</th>
+								<th scope="col">Amount</th>
+								<th scope="col">Mode</th>
+								<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="t : ${transaction}">
+								<th scope="row"><span th:text="${t.tId}"></span></th>
+								<td > 								  
+									<span th:text="${t.date}"></span>
+								</td>
+								<td > 								  
+									<span th:text="${t.fromAccount}"></span>
+								</td>
+								<td > 								  
+									<span th:text="${t.toAccount}"></span>
+								</td>
+								<td > 								  
+									<span th:text="${t.amount}"></span>
+								</td>
+								<td > 								  
+									<span th:text="${t.mode}"></span>
+								</td>	
+								<td > 								  
+									<span th:text="${t.status}"></span>
+								</td>
+								</tr>
+								
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>

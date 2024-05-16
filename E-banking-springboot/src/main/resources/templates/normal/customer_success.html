@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>home</title>
+</head>
+<body>
+
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body mb-5">
+
+				<div class="container text-center">
+					<h4 class="mt-3">Customer created successfully with following
+						details !!</h4>
+					<h6>
+						Id : <span class="bg-text-color" th:text="${customer.id}"></span>
+					</h6>
+					<h6>
+						Name : <span class="bg-text-color" th:text="${customer.firstName}">
+						</span> <span class="bg-text-color" th:text="${customer.lastName}"></span>
+					</h6>
+					<h6>
+						Age : <span class="bg-text-color" th:text="${customer.age}"></span>
+					</h6>
+					<h6>
+						Gender: <span class="bg-text-color" th:text="${customer.gender}"></span>
+					</h6>
+					<h6>
+						City : <span class="bg-text-color" th:text="${customer.city}"></span>
+					</h6>
+					<h6>
+						Occupation : <span class="bg-text-color"
+							th:text="${customer.occupation}"></span>
+					</h6>
+					<h6>
+						Email : <span class="bg-text-color" th:text="${customer.email}"></span>
+					</h6>
+					<h6>
+						Contact : <span class="bg-text-color"
+							th:text="${customer.contact}"></span>
+					</h6>
+					<h6>
+						Annual Income : <span class="bg-text-color"
+							th:text="${customer.annualIncome}"></span>
+					</h6>
+					<h6>
+						Credit Card : <span class="bg-text-color"
+							th:text="${customer.creditCard}"></span>
+					</h6>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>signin</title>
+</head>
+<body>
+
+	<section>
+		<div id="login">
+
+			<div class="container">
+
+				<div id="login-row"
+					class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+
+						<div th:if="${param.error}"
+							class="alert alert-danger mt-5 text-center">Invalid
+							Username and Password !!</div>
+						<div th:if="${param.logout}"
+							class="alert alert-success mt-5 text-center">You have been
+							logout successfully !!</div>
+						<!-- Message Box for adding contact  -->
+						<div th:if="${session.message}"
+							class="container text-center text-white mt-5">
+							<div class="alert alert-success">
+								<span th:text="${session.message}"></span>
+							</div>
+							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+
+
+						<div id="login-box" class="col-md-12">
+
+							<form id="login-form" class="form" th:action="@{/dologin}"
+								action="#" method="post">
+								<h3 class="text-center bg-text-color">Login Here !!</h3>
+								<div class="form-group">
+									<label for="username" class="bg-text-color">Username:</label><br>
+									<input type="text" name="username" id="username"
+										class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="password" class="bg-text-color">Password:</label><br>
+									<input type="password" name="password" id="password"
+										class="form-control">
+								</div>
+								<div class="text-center">
+									<input type="submit" name="submit"
+										class="btn  btn-sign bg-color text-white btn-md"
+										value="submit">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

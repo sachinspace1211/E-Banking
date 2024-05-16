@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+</head>
+<body>
+
+	<section
+		class="banner d-flex justify-content-center align-items-center text-white">
+		<div class="text-center p-4">
+			<h1>E - Banking</h1>
+			<p>Collect your customer in a smarter way, we provide very
+				efficient and smarter way of handling customer.</p>
+			<a th:href="@{/signin}"
+				class="btn bg-color pl-5 pr-5 text-white btn-lg">Get Start</a>
+		</div>
+	</section>
+</body>
+</html>

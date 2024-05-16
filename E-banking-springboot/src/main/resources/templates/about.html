@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>about</title>
+</head>
+<body>
+
+	<section>
+		<div class="card m-5">
+			<div class="card-body">
+				<div class="container text-center">
+					<img src="#" th:src="@{/img/defaultUser.png}"
+						style="width: 200px; height: 200px;" class="" alt="" />
+				</div>
+
+				<div class="container mt-3" >
+
+					<h3>Functionalities Provided by <span class="bg-text-color font-weight-bold">E - Banking</span></h3>
+
+					<ul class="list-group list-group-flush ">
+						<li class="list-group-item bg-text-color">Provides the searching facilities based on contact names.</li>
+						<li class="list-group-item bg-text-color">It tracks all information about contact details.</li>
+						<li class="list-group-item bg-text-color">User can manage Profile.</li>
+						<li class="list-group-item bg-text-color">Login and logout module with security.</li>
+						<li class="list-group-item bg-text-color">Forgot Password with OTP verification.</li>
+						<li class="list-group-item bg-text-color">Editing, adding and updating contact with profile Picture. </li>
+						<li class="list-group-item bg-text-color">Manage the information of Peoples.</li>
+						<li class="list-group-item bg-text-color">Integration of all records of Address.</li>
+					</ul>
+
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

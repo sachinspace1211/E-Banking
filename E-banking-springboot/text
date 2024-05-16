@@ -1,0 +1,1 @@
+insert into transaction values(1,100000,'2022-07-22',1000000,'cash','success',1000007,1000);

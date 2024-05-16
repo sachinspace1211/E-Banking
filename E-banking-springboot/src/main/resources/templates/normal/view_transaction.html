@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>view_transsaction</title>
+</head>
+<body>
+
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body mb-5"></div>
+
+			<div class="container text-center">
+				<h3 >View Transaction !!</h3>
+
+
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						<form novalidate="novalidate" action="#"
+							th:action="@{/user/process-transaction}"
+							method="post" class="mt-2" id="fromId">
+							<input  type="hidden" name="id" th:value="${id}" /> 
+							<label for="fromDate">From Date</label> 
+							<input required placeholder="Select date" type="date" name="fromDate" 
+							     id="fromDate" class="form-control"> 
+							<label for="toDate">To Date</label> 
+							<input required placeholder="Select date" type="date" name="toDate" 
+							     id="toDate" class="form-control">
+
+							<!-- Button  -->
+							<div class="container text-center mt-3">
+								<button  type="submit"
+									class="btn btn-lg bg-color pl-3 pr-3  mr-3 text-white mb-5">View
+									Transaction</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>
