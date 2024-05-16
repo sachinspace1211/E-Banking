@@ -1,2 +1,3 @@
 # E-Banking
-I developed this portfolio this portfolio website using Spring Boot
+Developed this portfolio this portfolio website using J2EE then converted into Spring MVC the updated into Spring Bootn Project
+
